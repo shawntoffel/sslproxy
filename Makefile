@@ -3,13 +3,14 @@ VERSION=$(TAG:v%=%)
 NAME=sslproxy
 DOCKER_REGISTRY=ghcr.io
 REPO=shawntoffel/$(NAME)
+DOCKER=docker
 
 .PHONY: all docker-build docker-deploy
 
 all: docker-build
 
 docker-build:
-	docker build -t $(DOCKER_REGISTRY)/$(REPO):$(VERSION) .
+	$(DOCKER) build -t $(DOCKER_REGISTRY)/$(REPO):$(VERSION) .
 
 docker-push:
-	docker push $(DOCKER_REGISTRY)/$(REPO):$(VERSION)
+	$(DOCKER) push $(DOCKER_REGISTRY)/$(REPO):$(VERSION)
