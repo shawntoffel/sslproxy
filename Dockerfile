@@ -1,4 +1,4 @@
-FROM nginx:1.29-alpine
+FROM nginx:1.31-alpine
 RUN apk update && apk add --no-cache openssl
 COPY dhparam.pem /etc/nginx/dhparam.pem
 COPY nginx.conf.template .
